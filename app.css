@@ -229,7 +229,7 @@ letter-spacing: 2px;
 /* Agregados */
 
 #title{
-  padding-top: 50px;
+  padding: 50px 0;
   color: #FDBC30;
   font-family: 'Raleway';
   text-transform: none;
@@ -251,4 +251,12 @@ letter-spacing: 2px;
 
 #video{
   height: 200px;
+}
+
+.padd{
+  padding: 0 50px;
+}
+
+.pdd-t-25{
+  padding-top: 25px;
 }

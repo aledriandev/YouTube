@@ -20,21 +20,26 @@ let app = {
                   if(e.which == 13) {
                         $("#root").empty();
                         $('#video').empty();
+                        $('#details').empty();
                         // let searchHere = $('#search').val();
                         // console.log(searchHere);
                         app.youtubeSearch($('#search').val());
                   }
             });
       },
+
       getVideo: function (video){
+            const url = `https://www.youtube.com/embed/${video.id.videoId}`;
+            return `<iframe class="embed-responsive-item" src=${url}> </iframe>`;
+      },
+
+      getDetails: function (video){
             const title = video.snippet.title;
             const description = video.snippet.description;
-            const url = `https://www.youtube.com/embed/${video.id.videoId}`;
-            return `<iframe class="embed-responsive-item" src=${url} height="200" width="300"> </iframe>
-                        <p><b>${title}</b></p>
+            return ` <p><b>${title}</b></p>
                         <p>${description}</p>`;
-      
-      },      
+                       
+      }, 
       //<iframe className="embed-responsive-item" src={url}> </iframe>
       getVideoList: function(videos) {
             return videos.map((video, index) => {
@@ -65,8 +70,10 @@ let app = {
             };
             var list = app.getVideoList(app.result.videos);
             let firstVideo = app.getVideo(app.result.selectedVideo);
+            let firsDetail = app.getDetails(app.result.selectedVideo);
             $("#root").append(list);
             $('#video').append(firstVideo)
+            $('#details').append(firsDetail);
             });
       }
 };
