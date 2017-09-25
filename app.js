@@ -1,6 +1,6 @@
 "use strict";
 
-const API_KEY = "AIzaSyB6RQPxv-X6aojxx9IKh0Nc4twyqlMnitI";
+const API_KEY = "AIzaSyAlPKe5Id3BSVxyfKZT-eqnZZr2pJRE6zQ";
 
 let app = {
    result: {
@@ -11,8 +11,20 @@ let app = {
 
    init: function() {
       //app.videoSearch("iPhone");
-      app.youtubeSearch("iPhone X");
+      app.youtubeSearch("iPhoneX");
+      
    },
+   
+//    setup: function () {
+//       $('#search').keyup(function(e){
+//             if(e.which == 13)
+//             {
+//                 let searchHere = $('#search').val();
+//                 console.log(searchHere);
+//                 app.youtubeSearch(searchHere);
+//             }
+//       });
+//    },
    //<iframe className="embed-responsive-item" src={url}> </iframe>
    getVideoList: function(videos) {
       return videos.map((video, index) => {
@@ -56,4 +68,14 @@ let app = {
    }
 };
 
-$(document).ready(app.init);
+$(document).ready(function() {
+      app.init();
+      $('#search').keyup(function(e) {
+            if(e.which == 13) {
+                  $("#root").empty();
+                  let searchHere = $('#search').val();
+                  console.log(searchHere);
+                  app.youtubeSearch($('#search').val());
+            }
+      });
+});
