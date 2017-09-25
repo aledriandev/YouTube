@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+*{
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background: #d5d5d5; 
+  background: #FFFEC0; 
   font-family: arial;
   color: #FAFAFA;
   text-transform: uppercase;
@@ -215,4 +224,24 @@ body {
     background: #4b71b5;
     color: #fafafa;
     cursor: pointer;
+  }
+
+  #title{
+    color: #FDBC30;
+    font-family: 'Raleway';
+    text-transform: none;
+    font-size: 300%;
+  }
+
+  #search{
+    width: 70%;
+    background-color: white;
+    color: black;
+    font-size: 50%;
+    padding: 5px 10px;
+    margin-left: 10px;
+  }
+
+  #tube{
+    border-radius: 15px;
   }
