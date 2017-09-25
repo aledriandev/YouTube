@@ -4,18 +4,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Youtube jQuery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Youtube jQuery</title>
 
-   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-   <script src="node_modules/jquery/dist/jquery.min.js"></script>
-   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-   <script src="node_modules/axios/dist/axios.min.js"></script>
-   <script src="node_modules/youtube-api-search/index.js"></script>
-   
-   <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="node_modules/youtube-api-search/index.js"></script>
+
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
    <div class="container">
@@ -24,9 +24,12 @@
         <img id="tube" src="img/tube.png" alt="" height="60px">
         <input id="search" type="text">
     </div>
-      <ol id = "root">
-         
-      </ol>
+    <div class="row">
+        <div class="col-md-8 embed-responsive embed-responsive-16by9" id="video"></div>
+        <div class="col-md-4">
+            <ul class="list-group" id = "root"></ul>
+        </div>
+    </div>
    </div>
    <script src="app.js"></script>
 </body>
