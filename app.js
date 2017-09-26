@@ -26,7 +26,7 @@ let app = {
 
       getVideo: function (video){
             $('#video').empty();
-            const url = `http://www.youtube.com/embed/${video.id.videoId}`;
+            const url = `https://www.youtube.com/embed/${video.id.videoId}`;
             return `<iframe class="embed-responsive-item" src=${url}> </iframe>`;
       },
 
