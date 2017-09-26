@@ -16,11 +16,15 @@ let app = {
             app.setup();
       },
       
-      setup: function () {
-            $('#search').keyup(function(e) {
+      setup () {
+            $('#search').keyup((e) => {
                   if(e.which == 13) {
                         app.youtubeSearch($('#search').val());
                   }
+            });
+            $('#root').on('click', function(e){
+                  console.log('holi');
+                  this.select(e);
             });
       },
 
@@ -37,7 +41,7 @@ let app = {
             return ` <p><b>${title}</b></p>
                         <p>${description}</p>`;
                        
-      }, 
+      },
       //<iframe className="embed-responsive-item" src={url}> </iframe>
       getVideoList: function(videos) {
             $("#root").empty();
@@ -72,15 +76,13 @@ let app = {
             console.log(searchTerm);
 
             YTSearch({ key: API_KEY, term: searchTerm }, data => {
-            console.log("result", data);
-            app.result = {
-                  videos: data,
-                  selectedVideo: data[0],
-                  searchTerm: searchTerm
-            };
-            var list = app.getVideoList(app.result.videos);
-            let firstVideo = app.getVideo(app.result.selectedVideo);
-            let firsDetail = app.getDetails(app.result.selectedVideo);
+            // console.log("result" data);
+            this.videos= data;
+            this.selectedVideo= data[0];
+            this.searchTerm= searchTerm;
+            var list = this.getVideoList(this.videos);
+            let firstVideo = this.getVideo(this.selectedVideo);
+            let firsDetail = this.getDetails(this.selectedVideo);
             $("#root").append(list);
             $('#video').append(firstVideo)
             $('#details').append(firsDetail);
@@ -89,5 +91,6 @@ let app = {
 };
 
 $(document).ready(function() {
+      var app = new App ();
       app.init();
 });
