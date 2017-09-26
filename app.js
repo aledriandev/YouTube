@@ -23,6 +23,10 @@ class App {
                         this.youtubeSearch($('#search').val());
                   }
             });
+            $('#root').on('click', function(e){
+                  console.log('holi');
+                  this.select(e);
+            });
       }
 
       getVideo (video){
@@ -47,7 +51,7 @@ class App {
                   const description = video.snippet.description;
                   const imageUrl = video.snippet.thumbnails.default.url;
                   // this.result.selectedVideo = videos[index];
-                  return `<li class="list-group-item" id=${index} onclick='this.select(this)'>
+                  return `<li class="list-group-item" id=${index}>
                               <div class='row'>
                                     <div class='col-md-6 col-ls-6 col-xs-6 col-sm-6'>
                                           <img class="media-object" src=${imageUrl} /> 
@@ -59,16 +63,18 @@ class App {
                         </li>`;
             });
       }
-      // select (e) => {
-      //       let index = parseInt($(e).attr("id"));
-      //       this.result.selectedVideo = this.result.videos[index];
+      select (e) {
+            console.log('holi');
+            let index = parseInt($(this).attr("id"));
+            console.log(index);
+            this.result.selectedVideo = this.result.videos[index];
 
-      //       let video = this.getVideo(this.result.selectedVideo);
-      //       let detail = this.getDetails(this.result.selectedVideo);
-      //       $('#video').thisend(video)
-      //       $('#details').thisend(detail);
+            let video = this.getVideo(this.result.selectedVideo);
+            let detail = this.getDetails(this.result.selectedVideo);
+            $('#video').thisend(video)
+            $('#details').thisend(detail);
             
-      // }
+      }
       youtubeSearch (searchTerm) {
             console.log(searchTerm);
 
