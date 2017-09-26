@@ -58,11 +58,13 @@ let app = {
             });
       },
       select: (e) => {
-            alert($(e).attr("id"))
-            // let video = app.getVideo(app.result.selectedVideo);
-            // let detail = app.getDetails(app.result.selectedVideo);
-            // $('#video').append(video)
-            // $('#details').append(detail);
+            let index = parseInt($(e).attr("id"));
+            app.result.selectedVideo = app.result.videos[index];
+
+            let video = app.getVideo(app.result.selectedVideo);
+            let detail = app.getDetails(app.result.selectedVideo);
+            $('#video').append(video)
+            $('#details').append(detail);
             
       },
       youtubeSearch: function(searchTerm) {
